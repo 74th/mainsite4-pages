@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Events on 74th</title>
+    <link>https://www.j74th.com/events/</link>
+    <description>Recent content in Events on 74th</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 08 Oct 2018 00:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://www.j74th.com/events/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>技術書典5お品書き</title>
+      <link>https://www.j74th.com/events/techbookfest5/</link>
+      <pubDate>Mon, 08 Oct 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://www.j74th.com/events/techbookfest5/</guid>
+      <description>概要  2018.10.08 技術書典5 https://techbookfest.org/event/tbf05 ブース: き21 https://techbookfest.org/event/tbf05/circle/28510001 サークル名: 74th  無料配布 Fabric &amp;amp; Invoke Quick Guide
+Fabricを使い始めるには十分すぎる小冊子。無料配布。
+ 頒布価格:  冊子 無料  サイズ: A5/8ページ 著者: 74th(Golang)
+ 目次・サンプル: PDF
+  新刊  頒布価格:  本+PDF 1,000円 PDF 800円  サイズ: A5/79ページ 著者: 74th  Fabricを使い倒す本。
+ 目次・サンプル: PDF  既刊  頒布価格:  本+PDF 1,000円 PDF 800円  サイズ: A5/119ページ 著者: 74th(Golang)、こばたく(WebWorker)  Golangを選ぶからには信頼できる性能がほしい。
+Golangで、性能を取りつつ構造化を図るとどの程度のコストがかかるのかを、実測して見極めて考える本。
+Goルーチンを使い捨てにするとか、chanを戻り値にするとか、sync.Mutexを使うとか、Contextをリソース解放に使うとか、それらのコストを計測。</description>
+    </item>
+    
+    <item>
+      <title>技術書典4お品書き</title>
+      <link>https://www.j74th.com/events/techbookfest4/</link>
+      <pubDate>Sun, 22 Apr 2018 17:48:00 +0900</pubDate>
+      
+      <guid>https://www.j74th.com/events/techbookfest4/</guid>
+      <description>概要  2018.04.22 技術書典4 https://techbookfest.org/event/tbf04 ブース: い17 サークル名: 74th  新刊  頒布価格:  本+PDF 1,000円 PDF 800円  サイズ: A5/119ページ 著者: 74th(Golang)、こばたく(WebWorker)  Golangを選ぶからには信頼できる性能がほしい。
+Golangで、性能を取りつつ構造化を図るとどの程度のコストがかかるのかを、実測して見極めて考える本。
+Goルーチンを使い捨てにするとか、chanを戻り値にするとか、sync.Mutexを使うとか、Contextをリソース解放に使うとか、それらのコストを計測。
++WebWorkerでタスク並列化の有効性を検証する記事
+ 目次・サンプル: PDF  ソースコード  第1部  準備中  第2部 WebWorker活用技術  https://github.com/kobatakuJP/ChiekoneWebWorker   既刊: Visual Studio Codeデバッグ技術  頒布価格:  本+PDF 1,000円 PDF 500円  サイズ: A5/114ページ  Visual Studo Codeでひたすらデバックしまくる本。 第1部では、VSCodeのデバッグ機能の全解説や、デバッガとのやり取りを行うVSCodeが提供しているプロトコルを解説を通して、VSCodeのデバッグへの理解を深める。
+第2部では、様々な言語のデバッグのやり方と、各言語でのデバッグのスペックを眺めてニヤニヤできる。いざその言語でデバッグしたいときの助けになれると期待。
+ソースコード 第2部のソースコードは以下で公開しています。
+https://github.com/74th/vscode-debug-specs
+目次  第 I 部 デバッグ機能解説  第 1 章 デバッグ機能とは  1.</description>
+    </item>
+    
+    <item>
+      <title>技術書典3お品書き</title>
+      <link>https://www.j74th.com/events/techbookfest3/</link>
+      <pubDate>Sun, 22 Oct 2017 17:48:00 +0900</pubDate>
+      
+      <guid>https://www.j74th.com/events/techbookfest3/</guid>
+      <description>概要  2017.10.22 技術書典3 https://techbookfest.org/event/tbf03 ブース: お18 サークル名: 74th 書名: Visual Studio Codeデバッグ技術 頒布価格:  本+PDF 1,000円 PDF 800円  PixivPay対応 サイズ: A5/114ページ  Visual Studo Codeでひたすらデバックしまくる本。 第1部では、VSCodeのデバッグ機能の全解説や、デバッガとのやり取りを行うVSCodeが提供しているプロトコルを解説を通して、VSCodeのデバッグへの理解を深める。
+第2部では、様々な言語のデバッグのやり方と、各言語でのデバッグのスペックを眺めてニヤニヤできる。いざその言語でデバッグしたいときの助けになれると期待。
+ソースコード 第2部のソースコードは以下で公開しています。
+https://github.com/74th/vscode-debug-specs
+目次  第 I 部 デバッグ機能解説  第 1 章 デバッグ機能とは  1.1 Visual Studio Code について 1.2 デバッグ機能とは 1.3 デバッガを実現するためには 1.4 GNU デバッガ 1.5 VSCode のデバッグ機能のアーキテクチャ  第 2 章 Debugger UI  2.1 画面構成 2.2 Debug メニュー 2.</description>
+    </item>
+    
+  </channel>
+</rss>

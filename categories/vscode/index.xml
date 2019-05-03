@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vscode on 74th</title>
+    <link>https://www.j74th.com/categories/vscode/</link>
+    <description>Recent content in Vscode on 74th</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 19 Apr 2016 07:46:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://www.j74th.com/categories/vscode/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Visual Studio Code の使い方</title>
+      <link>https://www.j74th.com/vscode/</link>
+      <pubDate>Tue, 19 Apr 2016 07:46:00 +0900</pubDate>
+      
+      <guid>https://www.j74th.com/vscode/</guid>
+      <description>VisualStudioCodeのダウンロード(公式サイト)
+1.0になったVisualStudioCodeの強みと弱点(ブログ記事)
+タスクを作る  .vscode/tasks.jsonに記述し、task &amp;lt;タスク名&amp;gt;で実行できる。 特別にTest、Buildの2種類のタスクを設定できる。 タスクは、tasksとして複数登録できるが、引数しか変えることができない。そのためmakeを使うと良い。  { &amp;quot;version&amp;quot;: &amp;quot;0.1.0&amp;quot;, &amp;quot;command&amp;quot;: &amp;quot;make&amp;quot;, &amp;quot;isShellCommand&amp;quot;: true, &amp;quot;showOutput&amp;quot;: &amp;quot;silent&amp;quot;, &amp;quot;tasks&amp;quot;: [ { &amp;quot;taskName&amp;quot;: &amp;quot;build&amp;quot;, &amp;quot;isBuildCoommand&amp;quot;: true, &amp;quot;args&amp;quot;: [ &amp;quot;build&amp;quot; ] }, ... }  カスタマイズ &amp;gt; Open UserSettings  フォントを変える Macでは英語名で、スペースを詰めて、ウェイトは半角ハイフンを入れて記述する。 Windowsでは日本語名で、シングルクォートで囲み、ウェイトは半角ハイフンを入れて記述する。
+{ &amp;quot;editor.fontFamily&amp;quot;: &amp;quot;SourceHanCodeJP-Light, &#39;源ノ角ゴシック Code JP Light&#39;&amp;quot;, &amp;quot;editor.fontSize&amp;quot;: 13 }  タブを描画する { &amp;quot;editor.renderWhitespace&amp;quot;: true, }  タブをすべてスペースにする デフォルト設定では、ファイルに合わせてスペースかタブかを選んでくれている。
+{ &amp;quot;editor.insertSpaces&amp;quot;: true }  タイプ時に整形を自動実施 { &amp;quot;editor.formatOnType&amp;quot;: true }  エディタの右端で折り返す { &amp;quot;editor.</description>
+    </item>
+    
+  </channel>
+</rss>

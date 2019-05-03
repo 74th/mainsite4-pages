@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="alternate" href="/index.xml" type="application/rss+xml" title="74th">
+		<link rel="icon" href="https://www.j74th.com/img/me20150920.png">
+		<title>Dockerのインストール - 74th</title>
+		
+		<link rel="stylesheet" href="https://www.j74th.com/css/highlight.js.min.css">
+		<link rel="stylesheet" href="https://www.j74th.com/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://www.j74th.com/css/bootstrap-theme.css">
+		<link rel="stylesheet" href="https://www.j74th.com/css/theme.css">
+		<link rel="stylesheet" href="https://www.j74th.com/css/bootie-docs.css">
+		<link rel="stylesheet" href="https://www.j74th.com/css/additional.css">
+	</head>
+
+<body role="document">
+
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-N862MG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N862MG');</script>
+
+
+	
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="https://www.j74th.com">74th</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li ><a href="https://www.j74th.com/">Home</a></li>
+				
+				
+					<li class="active"><a href="/docker/">Docker</a></li>
+				
+					<li ><a href="/ps4ps3race/">Race</a></li>
+				
+				
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+						
+							<li><a href="https://www.j74th.com/categories/book">Book</a></li>
+						
+							<li><a href="https://www.j74th.com/categories/docker">Docker</a></li>
+						
+							<li><a href="https://www.j74th.com/categories/game">Game</a></li>
+						
+							<li><a href="https://www.j74th.com/categories/racegame">Racegame</a></li>
+						
+							<li><a href="https://www.j74th.com/categories/vscode">Vscode</a></li>
+						
+						</ul>
+					</li>
+				
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+<div class="container">
+
+
+<div class="row">
+	<div class="col-sm-8 doc-main">
+		<main role="main">
+			<article>
+				<a id="title"></a>
+				<h1 class="doc-entry-title">Dockerのインストール</h1>
+				<div class="doc-entry-meta">
+					<span><time datetime="2015-09-20">2015-09-20</time></span>
+				</div>
+				<section>
+					
+
+<h2 id="windowsの場合">Windowsの場合</h2>
+
+<p>Docker Toolboxを使う。</p>
+
+<p><a href="https://www.docker.com/toolbox">https://www.docker.com/toolbox</a></p>
+
+<p>Boot2dockerを使うのは現在非推奨。</p>
+
+<p>その後、コマンドプロンプトから、docker-machineでdockerサーバを立てる。</p>
+
+<pre><code>&gt; docker-machine create --driver virtualbox dev
+</code></pre>
+
+<p>VirtualBoxにdevという仮想マシンができる。</p>
+
+<p>以後、以下のコマンドで起動、終了できる。</p>
+
+<pre><code>&gt; docker-machine start dev
+&gt; docker-machine stop dev
+</code></pre>
+
+<p>dockerコマンドを、この仮想マシンに向けさせるには、以下のコマンドで表示されるコマンドをコピーして入力する。&ndash;shell引数は、コマンドプロンプトの場合はcmd、Powershellの場合はpsを入力する。</p>
+
+<pre><code>&gt; docker-machine env --shell cmd dev
+</code></pre>
+
+<p>もし、exportで始まるコマンドが表示された場合は、exportをsetに置き換えて実行する。</p>
+
+<pre><code>&gt; docker-machine env --shell cmd dev
+set -x DOCKER_TLS_VERIFY 1;
+set -x DOCKER_HOST tcp://192.168.99.101:2376;
+set -x DOCKER_CERT_PATH= /Users/user/.docker/machines/dev;
+set -x DOCKER_MACHINE_NAME dev;
+# Run this command to configure your shell:
+
+&gt; set -x DOCKER_TLS_VERIFY 1;
+&gt; set -x DOCKER_HOST tcp://192.168.99.101:2376;
+&gt; set -x DOCKER_CERT_PATH Users/user/.docker/machines/dev;
+&gt; set -x DOCKER_MACHINE_NAME dev;
+</code></pre>
+
+<p>以下が実行できれば構築完了。</p>
+
+<pre><code>&gt; docker run hello-world
+</code></pre>
+
+<h2 id="macの場合">Macの場合</h2>
+
+<p>docker toolboxも使えるが、アップグレードの手軽さから、homebrewを使った方が良い。</p>
+
+<p><a href="http://brew.sh/index_ja.html">Homebrewのインストールはこちらを参照</a>。</p>
+
+<pre><code>$ brew install docker docker-machine docker-compose docker-swarm
+</code></pre>
+
+<p>別途、VirtualBoxはインストールしておく。<a href="https://www.virtualbox.org">VirtualBoxの入手はこちらから</a>。</p>
+
+<p>その後、docker-machineでdockerサーバを立てる。</p>
+
+<pre><code>$ docker-machine create --driver virtualbox dev
+</code></pre>
+
+<p>VirtualBoxにdevという仮想マシンができる。</p>
+
+<p>以後、以下のコマンドで起動、終了できる。</p>
+
+<pre><code>$ docker-machine start dev
+$ docker-machine stop dev
+</code></pre>
+
+<p>dockerコマンドを、この仮想マシンに向けさせるには、以下のコマンドで表示されるコマンドをコピーして入力する。.bashrcに入れても良い。</p>
+
+<pre><code>$ docker-machine env dev
+export DOCKER_TLS_VERIFY=&quot;1&quot;
+export DOCKER_HOST=&quot;tcp://192.168.99.101:2376&quot;
+export DOCKER_CERT_PATH=&quot;/Users/user/.docker/machines/dev&quot;
+export DOCKER_MACHINE_NAME=&quot;dev&quot;
+# Run this command to configure your shell:
+# eval &quot;$(docker-machine env dev)&quot;
+
+$ export DOCKER_TLS_VERIFY=&quot;1&quot;
+$ export DOCKER_HOST=&quot;tcp://192.168.99.101:2376&quot;
+$ export DOCKER_CERT_PATH=&quot;/Users/user/.docker/machines/dev&quot;
+$ export DOCKER_MACHINE_NAME=&quot;dev&quot;
+</code></pre>
+
+<p>書いてあるとおり、evalを使って設定することもできる。</p>
+
+<pre><code>$ eval &quot;$(docker-machine env dev)&quot;
+</code></pre>
+
+<p>以下が実行できれば構築完了。</p>
+
+<pre><code>$ docker run hello-world
+</code></pre>
+
+<h2 id="linuxの場合">Linuxの場合</h2>
+
+<p>Debian、RedHad系を問わず、以下のインストールコマンドを利用する。</p>
+
+<pre><code>$ curl -sSL https://get.docker.com/ | sudo sh
+</code></pre>
+
+<p>サービスの起動、終了は以下のコマンドを入力する。</p>
+
+<pre><code>$ sudo systemctl start docker
+$ sudo systemctl stop docker
+</code></pre>
+
+<p>以下が実行できれば構築完了。</p>
+
+<pre><code>$ sudo docker run hello-world
+</code></pre>
+
+<p>サービスを自動起動する場合は、以下のコマンドを利用する。</p>
+
+<pre><code>$ sudo systemctl enable docker
+</code></pre>
+
+<h1 id="プロキシ内でのdockerの運用">プロキシ内でのdockerの運用</h1>
+
+<h2 id="windowsの場合-1">Windowsの場合</h2>
+
+<p>インストールはdocker toolboxを使っておけばうまくいく。</p>
+
+<p>docker-machine createの時に環境変数を追加することができる。プロキシ設定を追加する。</p>
+
+<pre><code>&gt; docker-machine create -d virtualbox ^
+    --engine-env HTTP_PROXY=http://your.proxy:8080 ^
+    --engine-env HTTPS_PROXY=https://your.proxy:8080 ^
+    dev
+</code></pre>
+
+<h2 id="macの場合-1">Macの場合</h2>
+
+<p>homebrewは環境変数HTTP_PROXY、HTTPS_PROXYに設定すれば動く。</p>
+
+<pre><code>$ export HTTP_PROXY=http://your.proxy:8080
+$ export HTTPS_PROXY=https://your.proxy:8080
+$ brew install docker docker-machine docker-compose docker-swarm
+</code></pre>
+
+<p>docker-machine createの時に環境変数を追加することができる。プロキシ設定を追加する。</p>
+
+<pre><code>$ docker-machine create -d virtualbox \
+    --engine-env HTTP_PROXY=http://your.proxy:8080 \
+    --engine-env HTTPS_PROXY=https://your.proxy:8080 \
+    dev
+</code></pre>
+
+<p>dockerコマンド自体も、HTTP_PROXYが適用されるため、dockerコマンド利用時はHTTP_PROXY及び、HTTPS_PROXYの設定を削除するか、NO_PROXYに追加しておく必要がある。</p>
+
+<p>HTTP_PROXY及び、HTTPS_PROXYの設定を削除する場合。</p>
+
+<pre><code>$ export HTTP_PROXY=
+$ export HTTPS_PROXY=
+$ eval &quot;$(docker-machine env dev)&quot;
+$ docker run hello-world
+</code></pre>
+
+<p>NO_PROXYに追加する場合は、仮想マシンに割り当てられているIPアドレスを、docker-machine envで調べる。</p>
+
+<pre><code>$ docker-machine env dev
+export DOCKER_TLS_VERIFY=&quot;1&quot;
+export DOCKER_HOST=&quot;tcp://192.168.99.101:2376&quot;
+export DOCKER_CERT_PATH=&quot;/Users/user/.docker/machines/dev&quot;
+export DOCKER_MACHINE_NAME=&quot;dev&quot;
+# Run this command to configure your shell:
+# eval &quot;$(docker-machine env dev)&quot;
+
+$ export NO_PROXY=192.168.99.101
+$ docker run hello-world
+</code></pre>
+
+<h2 id="linuxの場合-1">Linuxの場合</h2>
+
+				</section>
+			</article>
+		</main>
+	</div> 
+
+	
+<div class="col-sm-3 col-sm-offset-1 doc-sidebar">
+	<div class="sidebar-module">
+		<div class="sidebar-toc">
+			<h4><a href="#title">Dockerのインストール</a></h4>
+			<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#windowsの場合">Windowsの場合</a></li>
+<li><a href="#macの場合">Macの場合</a></li>
+<li><a href="#linuxの場合">Linuxの場合</a></li>
+</ul></li>
+<li><a href="#プロキシ内でのdockerの運用">プロキシ内でのdockerの運用</a>
+<ul>
+<li><a href="#windowsの場合-1">Windowsの場合</a></li>
+<li><a href="#macの場合-1">Macの場合</a></li>
+<li><a href="#linuxの場合-1">Linuxの場合</a></li>
+</ul></li>
+</ul>
+</nav>
+		</div>
+	</div>
+</div>
+
+
+</div> 
+
+
+<hr />
+
+<div class="row">
+	<div class="col-sm-8">
+		<p class="doc-footer-em"><a href="#">Back to TOP</a></p>
+	</div>
+</div>
+
+</div> 
+
+
+
+<script src="https://www.j74th.com/js/jquery-1.11.2.min.js"></script>
+<script src="https://www.j74th.com/js/bootstrap.min.js"></script>
+
+<script src="https://www.j74th.com/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://www.j74th.com/js/ie10-viewport-bug-workaround.js"></script>
+<script src="https://www.j74th.com/js/additional.js"></script>
+
+</body>
+</html>
+

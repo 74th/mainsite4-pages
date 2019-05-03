@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Techbookfest3s on 74th</title>
+    <link>https://www.j74th.com/techbookfest3/</link>
+    <description>Recent content in Techbookfest3s on 74th</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 22 Oct 2017 17:48:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://www.j74th.com/techbookfest3/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>技術書典3お品書き</title>
+      <link>https://www.j74th.com/techbookfest3/</link>
+      <pubDate>Sun, 22 Oct 2017 17:48:00 +0900</pubDate>
+      
+      <guid>https://www.j74th.com/techbookfest3/</guid>
+      <description>概要  2017.10.22 技術書典3 https://techbookfest.org/event/tbf03 ブース: お13 署名: Visual Studio Codeデバッグ技術 本 1,000円(PDFダウンロードリンク付き) PDFのみ 800円 A5/約110ページ  Visual Studo Codeでひたすらデバックしまくる本。</description>
+    </item>
+    
+  </channel>
+</rss>

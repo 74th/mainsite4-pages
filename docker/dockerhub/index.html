@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="alternate" href="/index.xml" type="application/rss+xml" title="74th">
+		<link rel="icon" href="https://www.j74th.com/img/me20150920.png">
+		<title>DockerHubすぐに使えるコンテナ集 - 74th</title>
+		
+		<link rel="stylesheet" href="https://www.j74th.com/css/highlight.js.min.css">
+		<link rel="stylesheet" href="https://www.j74th.com/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://www.j74th.com/css/bootstrap-theme.css">
+		<link rel="stylesheet" href="https://www.j74th.com/css/theme.css">
+		<link rel="stylesheet" href="https://www.j74th.com/css/bootie-docs.css">
+		<link rel="stylesheet" href="https://www.j74th.com/css/additional.css">
+	</head>
+
+<body role="document">
+
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-N862MG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N862MG');</script>
+
+
+	
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="https://www.j74th.com">74th</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li ><a href="https://www.j74th.com/">Home</a></li>
+				
+				
+					<li class="active"><a href="/docker/">Docker</a></li>
+				
+					<li ><a href="/ps4ps3race/">Race</a></li>
+				
+				
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+						
+							<li><a href="https://www.j74th.com/categories/book">Book</a></li>
+						
+							<li><a href="https://www.j74th.com/categories/docker">Docker</a></li>
+						
+							<li><a href="https://www.j74th.com/categories/game">Game</a></li>
+						
+							<li><a href="https://www.j74th.com/categories/racegame">Racegame</a></li>
+						
+							<li><a href="https://www.j74th.com/categories/vscode">Vscode</a></li>
+						
+						</ul>
+					</li>
+				
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+<div class="container">
+
+
+<div class="row">
+	<div class="col-sm-8 doc-main">
+		<main role="main">
+			<article>
+				<a id="title"></a>
+				<h1 class="doc-entry-title">DockerHubすぐに使えるコンテナ集</h1>
+				<div class="doc-entry-meta">
+					<span><time datetime="2016-02-06">2016-02-06</time></span>
+				</div>
+				<section>
+					
+
+<p>使う前にまず、dockerとdocker-composeのインストールを行ってください。</p>
+
+<h2 id="最も早いdockerのインストール方法">最も早いdockerのインストール方法</h2>
+
+<p>Windows,Macの場合、<a href="https://www.docker.com/products/docker-toolbox">Docker Toolbox</a>を使う。</p>
+
+<p>Linuxの場合、以下を入力する</p>
+
+<pre><code class="language-sh">$ curl -fsSL https://get.docker.com/ | sudo sh
+</code></pre>
+
+<h2 id="os起動時-dockerサービス立ち上がり時-にコンテナを自動起動する方法">OS起動時(dockerサービス立ち上がり時)にコンテナを自動起動する方法</h2>
+
+<p><code>--restart=unless-stopped</code>を入れる。</p>
+
+<h2 id="redmine">Redmine</h2>
+
+<p><a href="https://hub.docker.com/r/74th/redmine-all-in-one/">dockerhub 74th/redmine-all-in-one</a> gitとSVNのホスティング付きRedmine. 私がメンテしてます.</p>
+
+<pre><code class="language-sh">docker run -d \
+  --name redmine \
+  -p 80:80 \
+  --restart=unless-stopped \
+  74th/redmine-all-in-one:JP
+</code></pre>
+
+<h2 id="bind9-dnsサーバ">bind9:DNSサーバ</h2>
+
+<p><a href="https://hub.docker.com/r/cosmicq/docker-bind/">dockerhub cosmicq/docker-bind</a></p>
+
+<p>Webブラウザで設定( <a href="http://dockerhost:10000/">http://dockerhost:10000/</a> )もできるDNSサーバ</p>
+
+<pre><code class="language-sh">docker run -d \
+  --name bind \
+  -p 53:53 \
+  -p 53:53/udp \
+  -p 10000:10000 \
+  -e PASS=newpass \
+  --hostname bind \
+  --restart=unless-stopped \
+  cosmicq/docker-bind
+</code></pre>
+
+<h2 id="ローカルメールサーバ">ローカルメールサーバ</h2>
+
+<p><a href="https://hub.docker.com/r/tvial/docker-mailserver/">dockerhub tvial/docker-mailserver</a></p>
+
+<p>以下のようなアカウント設定を<code>./postfix/accounts.cf</code>に作成するだけで、IMAPメールが使える。</p>
+
+<pre><code class="language-txt">user1@domain.tld|mypassword
+user2@otherdomain
+</code></pre>
+
+<pre><code class="language-sh">docker run -d \
+  --name mailserver \
+  -p 25:25 \
+  -p 143:143 \
+  -p 587:587 \
+  -p 993:993 \
+  -v ./postfix:/tmp/postfix/ \
+  --restart=unless-stopped \
+  tvial/docker-mailserver
+</code></pre>
+
+<h2 id="jenkins-ciツール">Jenkins:CIツール</h2>
+
+<p><a href="https://hub.docker.com/r/blacklabelops/jenkins/">dockerhub blacklabelops/jenkins</a></p>
+
+<pre><code class="language-sh">docker run -d \
+  --name jenkins \
+  -p 8080:8080 \
+  --restart=unless-stopped \
+  blacklabelops/jenkins
+</code></pre>
+
+<h2 id="gitbucket-githubクローン">GitBucket:Githubクローン</h2>
+
+<p><a href="https://hub.docker.com/r/f99aq8ove/gitbucket/">dockerhub f99aq8ove/gitbucket</a></p>
+
+<pre><code>docker run -d \
+  --name gitbucket \
+  -p 8080:8080 \
+  --restart=unless-stopped \
+  f99aq8ove/gitbucket
+</code></pre>
+
+<h2 id="mysql">MySQL</h2>
+
+<p><a href="https://hub.docker.com/_/mysql/">dockerhub library/mysql</a></p>
+
+<pre><code>docker run -d \
+  --name mysql \
+  -e MYSQL_ROOT_PASSWORD=my-secret-pw 
+  mysql
+</code></pre>
+
+<p>日本語を扱う場合、DBを作るときに文字コードをきちんとセットすること。</p>
+
+<h2 id="postgresql">PostgreSQL</h2>
+
+<p><a href="https://hub.docker.com/_/postgres/">dockerhub library/postgres</a></p>
+
+<pre><code>docker run -d \
+  --name postgres \
+  -e POSTGRES_PASSWORD=mysecretpassword \
+  postgres
+</code></pre>
+
+				</section>
+			</article>
+		</main>
+	</div> 
+
+	
+<div class="col-sm-3 col-sm-offset-1 doc-sidebar">
+	<div class="sidebar-module">
+		<div class="sidebar-toc">
+			<h4><a href="#title">DockerHubすぐに使えるコンテナ集</a></h4>
+			<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#最も早いdockerのインストール方法">最も早いdockerのインストール方法</a></li>
+<li><a href="#os起動時-dockerサービス立ち上がり時-にコンテナを自動起動する方法">OS起動時(dockerサービス立ち上がり時)にコンテナを自動起動する方法</a></li>
+<li><a href="#redmine">Redmine</a></li>
+<li><a href="#bind9-dnsサーバ">bind9:DNSサーバ</a></li>
+<li><a href="#ローカルメールサーバ">ローカルメールサーバ</a></li>
+<li><a href="#jenkins-ciツール">Jenkins:CIツール</a></li>
+<li><a href="#gitbucket-githubクローン">GitBucket:Githubクローン</a></li>
+<li><a href="#mysql">MySQL</a></li>
+<li><a href="#postgresql">PostgreSQL</a></li>
+</ul></li>
+</ul>
+</nav>
+		</div>
+	</div>
+</div>
+
+
+</div> 
+
+
+<hr />
+
+<div class="row">
+	<div class="col-sm-8">
+		<p class="doc-footer-em"><a href="#">Back to TOP</a></p>
+	</div>
+</div>
+
+</div> 
+
+
+
+<script src="https://www.j74th.com/js/jquery-1.11.2.min.js"></script>
+<script src="https://www.j74th.com/js/bootstrap.min.js"></script>
+
+<script src="https://www.j74th.com/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://www.j74th.com/js/ie10-viewport-bug-workaround.js"></script>
+<script src="https://www.j74th.com/js/additional.js"></script>
+
+</body>
+</html>
+

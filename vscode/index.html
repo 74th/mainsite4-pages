@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="alternate" href="/index.xml" type="application/rss+xml" title="74th">
+		<link rel="icon" href="https://www.j74th.com/img/me20150920.png">
+		<title>Visual Studio Code の使い方 - 74th</title>
+		
+		<link rel="stylesheet" href="https://www.j74th.com/css/highlight.js.min.css">
+		<link rel="stylesheet" href="https://www.j74th.com/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://www.j74th.com/css/bootstrap-theme.css">
+		<link rel="stylesheet" href="https://www.j74th.com/css/theme.css">
+		<link rel="stylesheet" href="https://www.j74th.com/css/bootie-docs.css">
+		<link rel="stylesheet" href="https://www.j74th.com/css/additional.css">
+	</head>
+
+<body role="document">
+
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-N862MG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N862MG');</script>
+
+
+	
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="https://www.j74th.com">74th</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li ><a href="https://www.j74th.com/">Home</a></li>
+				
+				
+					<li ><a href="/docker/">Docker</a></li>
+				
+					<li ><a href="/ps4ps3race/">Race</a></li>
+				
+				
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+						
+							<li><a href="https://www.j74th.com/categories/book">Book</a></li>
+						
+							<li><a href="https://www.j74th.com/categories/docker">Docker</a></li>
+						
+							<li><a href="https://www.j74th.com/categories/game">Game</a></li>
+						
+							<li><a href="https://www.j74th.com/categories/racegame">Racegame</a></li>
+						
+							<li><a href="https://www.j74th.com/categories/vscode">Vscode</a></li>
+						
+						</ul>
+					</li>
+				
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+<div class="container">
+
+
+<div class="row">
+	<div class="col-sm-8 doc-main">
+		<main role="main">
+			<article>
+				<a id="title"></a>
+				<h1 class="doc-entry-title">Visual Studio Code の使い方</h1>
+				<div class="doc-entry-meta">
+					<span><time datetime="2016-04-19">2016-04-19</time></span>
+				</div>
+				<section>
+					
+
+<p><a href="https://www.visualstudio.com/ja-jp/products/code-vs.aspx">VisualStudioCodeのダウンロード(公式サイト)</a></p>
+
+<p><a href="http://74th.hateblo.jp/entry/2016/04/15/062346">1.0になったVisualStudioCodeの強みと弱点(ブログ記事)</a></p>
+
+<h2 id="タスクを作る">タスクを作る</h2>
+
+<ul>
+<li><code>.vscode/tasks.json</code>に記述し、<code>task &lt;タスク名&gt;</code>で実行できる。</li>
+<li>特別に<code>Test</code>、<code>Build</code>の2種類のタスクを設定できる。</li>
+<li>タスクは、<code>tasks</code>として複数登録できるが、引数しか変えることができない。そのためmakeを使うと良い。</li>
+</ul>
+
+<pre><code class="language-json">{
+    &quot;version&quot;: &quot;0.1.0&quot;,
+    &quot;command&quot;: &quot;make&quot;,
+    &quot;isShellCommand&quot;: true,
+    &quot;showOutput&quot;: &quot;silent&quot;,
+    &quot;tasks&quot;: [
+        {
+            &quot;taskName&quot;: &quot;build&quot;,
+            &quot;isBuildCoommand&quot;: true,
+            &quot;args&quot;: [
+                &quot;build&quot;
+            ]
+        },
+        ...
+} 
+</code></pre>
+
+<h2 id="カスタマイズ">カスタマイズ</h2>
+
+<pre><code>&gt; Open UserSettings
+</code></pre>
+
+<h3 id="フォントを変える">フォントを変える</h3>
+
+<p>Macでは英語名で、スペースを詰めて、ウェイトは半角ハイフンを入れて記述する。
+Windowsでは日本語名で、シングルクォートで囲み、ウェイトは半角ハイフンを入れて記述する。</p>
+
+<pre><code class="language-json">{
+    &quot;editor.fontFamily&quot;: &quot;SourceHanCodeJP-Light, '源ノ角ゴシック Code JP Light'&quot;,
+    &quot;editor.fontSize&quot;: 13
+}
+</code></pre>
+
+<h3 id="タブを描画する">タブを描画する</h3>
+
+<pre><code class="language-json">{
+    &quot;editor.renderWhitespace&quot;: true,
+}
+</code></pre>
+
+<h3 id="タブをすべてスペースにする">タブをすべてスペースにする</h3>
+
+<p>デフォルト設定では、ファイルに合わせてスペースかタブかを選んでくれている。</p>
+
+<pre><code class="language-json">{
+    &quot;editor.insertSpaces&quot;: true
+}
+</code></pre>
+
+<h3 id="タイプ時に整形を自動実施">タイプ時に整形を自動実施</h3>
+
+<pre><code class="language-json">{
+    &quot;editor.formatOnType&quot;: true
+}
+</code></pre>
+
+<h3 id="エディタの右端で折り返す">エディタの右端で折り返す</h3>
+
+<pre><code class="language-json">{
+    &quot;editor.wrappingColumn&quot;: 0
+}
+</code></pre>
+
+<h3 id="プロジェクトディレクトリ毎に設定を適用する">プロジェクトディレクトリ毎に設定を適用する</h3>
+
+<p><code>.vscode/settings.json</code>に書く。</p>
+
+<h2 id="vimっぽく操作する">VIMっぽく操作する</h2>
+
+<pre><code>ext install vimStyle
+</code></pre>
+
+				</section>
+			</article>
+		</main>
+	</div> 
+
+	
+<div class="col-sm-3 col-sm-offset-1 doc-sidebar">
+	<div class="sidebar-module">
+		<div class="sidebar-toc">
+			<h4><a href="#title">Visual Studio Code の使い方</a></h4>
+			<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#タスクを作る">タスクを作る</a></li>
+<li><a href="#カスタマイズ">カスタマイズ</a>
+<ul>
+<li><a href="#フォントを変える">フォントを変える</a></li>
+<li><a href="#タブを描画する">タブを描画する</a></li>
+<li><a href="#タブをすべてスペースにする">タブをすべてスペースにする</a></li>
+<li><a href="#タイプ時に整形を自動実施">タイプ時に整形を自動実施</a></li>
+<li><a href="#エディタの右端で折り返す">エディタの右端で折り返す</a></li>
+<li><a href="#プロジェクトディレクトリ毎に設定を適用する">プロジェクトディレクトリ毎に設定を適用する</a></li>
+</ul></li>
+<li><a href="#vimっぽく操作する">VIMっぽく操作する</a></li>
+</ul></li>
+</ul>
+</nav>
+		</div>
+	</div>
+</div>
+
+
+</div> 
+
+
+<hr />
+
+<div class="row">
+	<div class="col-sm-8">
+		<p class="doc-footer-em"><a href="#">Back to TOP</a></p>
+	</div>
+</div>
+
+</div> 
+
+
+
+<script src="https://www.j74th.com/js/jquery-1.11.2.min.js"></script>
+<script src="https://www.j74th.com/js/bootstrap.min.js"></script>
+
+<script src="https://www.j74th.com/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://www.j74th.com/js/ie10-viewport-bug-workaround.js"></script>
+<script src="https://www.j74th.com/js/additional.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Book on 74th</title>
+    <link>https://www.j74th.com/categories/book/</link>
+    <description>Recent content in Book on 74th</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 23 Sep 2015 00:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://www.j74th.com/categories/book/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>おすすめのIT技術書</title>
+      <link>https://www.j74th.com/books/</link>
+      <pubDate>Wed, 23 Sep 2015 00:00:00 +0900</pubDate>
+      
+      <guid>https://www.j74th.com/books/</guid>
+      <description>   picture title/comment      エリック・エヴァンスのドメイン駆動設計（Kindle）2015年9月〜ソフトウェアを設計するとは、何と闘うことなのか。今我々が何を設計しているのか、何のために設計仕様としているのかを、再度気づかせられる。    Dockerエキスパート養成読本（PDF販売）2015年6月読了Dockerについてざくっと理解してザクッと使うには良い本。    開眼！ JavaScript――言語仕様から学ぶJavaScriptの本質（PDF販売）Javascriptがクライアントのネイティブ言語担っている今、Javascriptの本質に出会うためには手っ取り早い良い本。    Joel on Software2006年頃読了Softwareは別に堅物でも、わけのわからないものでもない。だけど、その性質を知っているには意味がある。ただソフトウェアを敵として戦っているだけでは出会えなかったエピソードが素敵。    </description>
+    </item>
+    
+  </channel>
+</rss>

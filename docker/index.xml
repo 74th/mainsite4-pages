@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dockers on 74th</title>
+    <link>https://www.j74th.com/docker/</link>
+    <description>Recent content in Dockers on 74th</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 06 Feb 2016 14:32:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://www.j74th.com/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>DockerHubすぐに使えるコンテナ集</title>
+      <link>https://www.j74th.com/docker/dockerhub/</link>
+      <pubDate>Sat, 06 Feb 2016 14:32:00 +0900</pubDate>
+      
+      <guid>https://www.j74th.com/docker/dockerhub/</guid>
+      <description>使う前にまず、dockerとdocker-composeのインストールを行ってください。
+最も早いdockerのインストール方法 Windows,Macの場合、Docker Toolboxを使う。
+Linuxの場合、以下を入力する
+$ curl -fsSL https://get.docker.com/ | sudo sh  OS起動時(dockerサービス立ち上がり時)にコンテナを自動起動する方法 --restart=unless-stoppedを入れる。
+Redmine dockerhub 74th/redmine-all-in-one gitとSVNのホスティング付きRedmine. 私がメンテしてます.
+docker run -d \ --name redmine \ -p 80:80 \ --restart=unless-stopped \ 74th/redmine-all-in-one:JP  bind9:DNSサーバ dockerhub cosmicq/docker-bind
+Webブラウザで設定( http://dockerhost:10000/ )もできるDNSサーバ
+docker run -d \ --name bind \ -p 53:53 \ -p 53:53/udp \ -p 10000:10000 \ -e PASS=newpass \ --hostname bind \ --restart=unless-stopped \ cosmicq/docker-bind  ローカルメールサーバ dockerhub tvial/docker-mailserver</description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>https://www.j74th.com/docker/</link>
+      <pubDate>Thu, 04 Feb 2016 09:51:54 +0900</pubDate>
+      
+      <guid>https://www.j74th.com/docker/</guid>
+      <description> 作ってるもの  Redmine all-in-one Git,SVNのホスティングや、いくつかのプラグインを同梱したすぐに使えるRedmineのコンテナ Jenkins for .NET projects .NETのビルドができるJenkinsのDockerコンテナ  使い方について  DockerHubすぐに使えるコンテナ集 Dockerのインストール&amp;hellip;プロキシ下でのインストール方法付き dockerをビルド環境として使う  記事  dockerについて Slideshare dockerdockerは求めていたものを全て提供してくれた - ITは遊び  </description>
+    </item>
+    
+    <item>
+      <title>Dockerのインストール</title>
+      <link>https://www.j74th.com/docker/start/</link>
+      <pubDate>Sun, 20 Sep 2015 09:51:54 +0900</pubDate>
+      
+      <guid>https://www.j74th.com/docker/start/</guid>
+      <description>Windowsの場合 Docker Toolboxを使う。
+https://www.docker.com/toolbox
+Boot2dockerを使うのは現在非推奨。
+その後、コマンドプロンプトから、docker-machineでdockerサーバを立てる。
+&amp;gt; docker-machine create --driver virtualbox dev  VirtualBoxにdevという仮想マシンができる。
+以後、以下のコマンドで起動、終了できる。
+&amp;gt; docker-machine start dev &amp;gt; docker-machine stop dev  dockerコマンドを、この仮想マシンに向けさせるには、以下のコマンドで表示されるコマンドをコピーして入力する。&amp;ndash;shell引数は、コマンドプロンプトの場合はcmd、Powershellの場合はpsを入力する。
+&amp;gt; docker-machine env --shell cmd dev  もし、exportで始まるコマンドが表示された場合は、exportをsetに置き換えて実行する。
+&amp;gt; docker-machine env --shell cmd dev set -x DOCKER_TLS_VERIFY 1; set -x DOCKER_HOST tcp://192.168.99.101:2376; set -x DOCKER_CERT_PATH= /Users/user/.docker/machines/dev; set -x DOCKER_MACHINE_NAME dev; # Run this command to configure your shell: &amp;gt; set -x DOCKER_TLS_VERIFY 1; &amp;gt; set -x DOCKER_HOST tcp://192.</description>
+    </item>
+    
+    <item>
+      <title>Dockerをビルド環境として使う</title>
+      <link>https://www.j74th.com/docker/command/</link>
+      <pubDate>Sun, 20 Sep 2015 09:51:54 +0900</pubDate>
+      
+      <guid>https://www.j74th.com/docker/command/</guid>
+      <description>dockerコンテナにコンパイラなどを入れ、更にそのコンテナにビルド対象のソースコードをマウントすることで、docker自体をビルド環境として使うことができる。
+例えばC#のビルドであれば、monoのコンテナ（monoは.NETのオープンソース実装。monoのmsbuildはxbuildになる）を使って、PATHの通ったところに以下の様なシェルスクリプトを置けば、ビルドコマンドに早変わりする。
+ /usr/local/bin/xbuild  #!/bin/sh eval &amp;quot;$(docker-machine env default)&amp;quot; docker run -it --rm -v `pwd`:/src --workdir=/src --entrypoint=xbuild mono $*  このスクリプトの前提は以下のとおり。
+ docker-machine env defaultが構築済みであること カレントディレクトリをdockerデーモンも参照できる状態にあること  WindowsとMacの場合、docker-machine create -d virtualbox defaultで作成すると、それが実現される。   ポイントは以下のとおり。
+ カレントディレクトリをそのままマウントする。 --workdirで、カレントディレクトリを指定する。 --entrypoint=xbuildで、ビルドコマンドを指定しておく。 最後に$*を付けることで、このシェルスクリプトの引数を、そのまま--entrypointで指定したビルドコマンドの引数にする。 -it &amp;ndash;rmを付けることで、実行後のコンテナはすぐに削除される。  すると、以下のようにビルドができる。
+$ xbuild ./TargetSolution.sln  コンテナ内で使うと、一切他のツールの依存関係を気にせず使えるので、dockerは正義だなと思う。 そのうち、ビルド環境になるコンテナだけを集めたパッケージマネージャが登場するんじゃないかな。</description>
+    </item>
+    
+  </channel>
+</rss>

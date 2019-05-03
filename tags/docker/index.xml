@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on 74th</title>
+    <link>https://www.j74th.com/tags/docker/</link>
+    <description>Recent content in Docker on 74th</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 20 Sep 2015 09:51:54 +0900</lastBuildDate>
+    
+	<atom:link href="https://www.j74th.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dockerのインストール</title>
+      <link>https://www.j74th.com/docker/start/</link>
+      <pubDate>Sun, 20 Sep 2015 09:51:54 +0900</pubDate>
+      
+      <guid>https://www.j74th.com/docker/start/</guid>
+      <description>Windowsの場合 Docker Toolboxを使う。
+https://www.docker.com/toolbox
+Boot2dockerを使うのは現在非推奨。
+その後、コマンドプロンプトから、docker-machineでdockerサーバを立てる。
+&amp;gt; docker-machine create --driver virtualbox dev  VirtualBoxにdevという仮想マシンができる。
+以後、以下のコマンドで起動、終了できる。
+&amp;gt; docker-machine start dev &amp;gt; docker-machine stop dev  dockerコマンドを、この仮想マシンに向けさせるには、以下のコマンドで表示されるコマンドをコピーして入力する。&amp;ndash;shell引数は、コマンドプロンプトの場合はcmd、Powershellの場合はpsを入力する。
+&amp;gt; docker-machine env --shell cmd dev  もし、exportで始まるコマンドが表示された場合は、exportをsetに置き換えて実行する。
+&amp;gt; docker-machine env --shell cmd dev set -x DOCKER_TLS_VERIFY 1; set -x DOCKER_HOST tcp://192.168.99.101:2376; set -x DOCKER_CERT_PATH= /Users/user/.docker/machines/dev; set -x DOCKER_MACHINE_NAME dev; # Run this command to configure your shell: &amp;gt; set -x DOCKER_TLS_VERIFY 1; &amp;gt; set -x DOCKER_HOST tcp://192.</description>
+    </item>
+    
+  </channel>
+</rss>

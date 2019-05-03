@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tech on 74th</title>
+    <link>https://www.j74th.com/categories/tech/</link>
+    <description>Recent content in Tech on 74th</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 05 Apr 2018 06:00:00 +0614</lastBuildDate>
+    
+	<atom:link href="https://www.j74th.com/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tensorflow For Mac CUDA (nvidia GPU)</title>
+      <link>https://www.j74th.com/tensorflow/</link>
+      <pubDate>Thu, 05 Apr 2018 06:00:00 +0614</pubDate>
+      
+      <guid>https://www.j74th.com/tensorflow/</guid>
+      <description>MacOSで動くCUDA(nvidia GPU)をサポートしたTensorflowは、未サポートのこともあり、自分でビルドする必要があります。
+ビルドしたものを以下にアップロードしています。
+https://storage.googleapis.com/74thopen/tensorflow_osx/index.html</description>
+    </item>
+    
+  </channel>
+</rss>
